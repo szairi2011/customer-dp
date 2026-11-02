@@ -1,0 +1,6 @@
+customer_id,customer_name,segment,country
+C001,Alice Martin,RETAIL,FR
+C002,Bob Durand,CORPORATE,tn
+C003,  Chloe Ben Ali ,RETAIL,TN
+C004,Dina Haddad,SME,TN
+C005,Eric Lopez,CORPORATE,ES

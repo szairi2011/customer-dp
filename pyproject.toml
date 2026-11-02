@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "customer-dp"
+version = "0.1.0"
+description = "Data product PySpark pédagogique : commandes et clients (Bronze/Silver/Gold)."
+requires-python = ">=3.8,<3.9"
+license = { text = "Proprietary" }
+# pyspark et py4j sont fournis par le cluster : ils ne sont jamais embarqués
+# dans l'archive Python (voir scripts/package.sh). Aucune autre dépendance d'exécution.
+dependencies = [
+  "pyspark==3.3.2",
+  "py4j==0.10.9.5",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6.0",
+  "jupytext>=1.16",
+  "ipykernel>=6.29",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/customer_dp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+extend-exclude = [".local", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["UP006", "UP007", "UP035", "UP037"]  # Python 3.8 : pas de list[str] / X | Y
+
+[tool.jupytext]
+formats = "ipynb,py:percent"

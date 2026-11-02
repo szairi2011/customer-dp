@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Environnements virtuels
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code (garder les réglages partagés éventuels)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Artefacts générés (wheel, archives, manifestes)
+dist/
+
+# Sorties locales, caches, logs, état des exécutions
+.local/
+metastore_db/
+derby.log
+spark-warehouse/
+
+# Surcharges locales de profil : peuvent contenir des valeurs propres au poste (jamais de secret versionné)
+conf/profiles/*.local.env
